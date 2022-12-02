@@ -1,0 +1,18 @@
+#
+# .gitignore
+#
+
+# Ignore every test directory
+**/test*
+
+# Ignore distribution builds and archives
+**/build/
+**/*.tar
+**/*.gz
+**/*.zip
+**/*.bz2
+**/*.rar
+**/*.tbz2
+**/*.tgz
+**/*.Z
+**/*.7z
