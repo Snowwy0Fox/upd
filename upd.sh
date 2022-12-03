@@ -40,22 +40,24 @@ draw_line() {
 
     done
 
+
     echo $l
 }
 
 wm() {
     if [ $# == 1 ]; then
-        declare lUpd="#          Updating $1          #"
-        lBor=$(draw_line ${#lUpd})
+        declare mUpd="          Updating $1          "
+        declare lUpd="#$mUpd#"
+        lBor="$(draw_line ${#lUpd})"
 
         echo
-        echo "$lBor"
-        echo "$lUpd"
-        echo "$lBor"
+        echo -e "\x1b[1;38;5;40m$lBor\e[0m"
+        echo -e "\x1b[1;38;5;40m#\e[0m\x1b[38;5;40m$mUpd\e[0m\x1b[1;38;5;40m#\e[0m"
+        echo -e "\x1b[1;38;5;40m$lBor\e[0m"
 
     else
         echo
-        echo "$lBor"
+        echo -e "\x1b[1;38;5;40m$lBor\e[0m"
         echo
 
     fi
@@ -65,7 +67,7 @@ run() {
     declare com="$*"
 
     echo
-    echo "[RUN] $com"
+    echo -e "\x1b[1;38;5;40m[\e[0m\x1b[38;5;40mRUN\e[0m\x1b[1;38;5;40m]\e[0m $com"
     echo
 
     com="$com"
@@ -99,11 +101,12 @@ update() {
 
             ;;
         "flatpak")
-            run flatpak update
+            run flatpak update --appstream -y
+            run flatpak update --system -y
             
             ;;
         \?)
-            echo "[ERROR]: Incorrect package manager"
+            echo -e "\x1b[38;5;196m[ERROR]: Incorrect package manager\e[0m"
             echo
 
             return 1
@@ -161,7 +164,7 @@ while getopts ":aypf" option; do
 
             exit;;
         \?) # Handle invalid option
-            echo "[ERROR]:  Invalid Option"
+            echo -e "\x1b[38;5;196m[ERROR]:  Invalid Option\e[0m"
             echo
 
             exit;;
