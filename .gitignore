@@ -2,8 +2,9 @@
 # .gitignore
 #
 
-# Ignore every test directory
+# Ignore every test dir and note file
 **/test*
+**/note*[0-9]
 
 # Ignore distribution builds and archives
 **/build/
