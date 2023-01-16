@@ -92,7 +92,7 @@ update() {
             
             run pacman --noconfirm -Syy
             run pacman-key --refresh-keys
-            run pacman-key --populate archlinux manjaro
+            run pacman-key --populate archlinux
             run pacman --noconfirm -Syu --needed
 
             ;;
