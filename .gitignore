@@ -7,7 +7,7 @@
 **/note*[0-9]
 
 # Ignore distribution builds and archives
-**/build/
+build/
 **/*.tar
 **/*.gz
 **/*.zip
